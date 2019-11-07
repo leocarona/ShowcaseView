@@ -378,6 +378,10 @@ public class ShowcaseView extends RelativeLayout
         if (MotionEvent.ACTION_UP == motionEvent.getAction() &&
                 hideOnTouch && distanceFromFocus > showcaseDrawer.getBlockedRadius()) {
             this.hide();
+            if(hasCustomClickListener) {
+                //Fire the end button click event handler
+                mEndButton.callOnClick();
+            }
             return true;
         }
 
